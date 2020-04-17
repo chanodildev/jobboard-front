@@ -2,11 +2,11 @@
   <div class="container">
     <div>
       <logo />
-      <h1 class="title">jobboard-front</h1>
-      <h2 class="subtitle">My superb Nuxt.js project</h2>
+      <h1 class="title">Jobsite</h1>
+      <h2 class="subtitle">{{jobsCount}} jobs and counting...</h2>
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
+        <n-link to="jobs" class="button--green">Jobs</n-link>
+        <n-link to="register" class="button--green">Register</n-link>
       </div>
     </div>
   </div>
@@ -16,13 +16,16 @@
 import Logo from "~/components/Logo.vue";
 
 export default {
+  async asyncData({ $axios, env }) {
+    return { jobsCount: await $axios.$get(`${env.API_URL}/jobs/count`) };
+  },
   components: {
     Logo
   }
 };
 </script>
 
-<style>
+<style scoped>
 .container {
   margin: 0 auto;
   min-height: 100vh;

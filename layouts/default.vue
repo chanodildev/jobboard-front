@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar>
-      <b-navbar-brand>
+      <b-navbar-brand to="/">
         Jobsite
         <sup>beta</sup>
       </b-navbar-brand>
