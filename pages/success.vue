@@ -3,6 +3,9 @@
     <div class="text-center p-5">
       <h1>Well done!</h1>
       <p>We recieved your job application</p>
+      <hr />
+      <h4>You'll be hearing from us...</h4>
+      <p>Check your email regularly</p>
     </div>
   </div>
 </template>
