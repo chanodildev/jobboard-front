@@ -57,9 +57,9 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: `http://192.168.0.19:1337/auth/local`, method: 'post', propertyName: 'jwt' },
+          login: { url: `${process.env.API_URL || 'http://localhost:1337'}/auth/local`, method: 'post', propertyName: 'jwt' },
           logout: false,
-          user: { url: `http://192.168.0.19:1337/users/me`, method: 'get', propertyName: false }
+          user: { url: `${process.env.API_URL || 'http://localhost:1337'}/users/me`, method: 'get', propertyName: false }
         },
         // tokenRequired: true,
         // tokenType: 'bearer'
@@ -73,7 +73,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'http://192.168.0.19:1337'
+    baseURL: process.env.API_URL || 'http://localhost:1337'
   },
   /*
   ** Build configuration
